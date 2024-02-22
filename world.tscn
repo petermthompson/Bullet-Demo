@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhg2loo310tin"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_p1yli"]
+[ext_resource type="Texture2D" uid="uid://knvh14bmooq8" path="res://icon.svg" id="2_5j7oa"]
+[ext_resource type="Script" path="res://bouncing_plane.gd" id="3_j3gl2"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_p1yli")
+
+[node name="FiringPlane" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_5j7oa")
+script = ExtResource("3_j3gl2")
+
+[node name="TargetPlane" type="Sprite2D" parent="."]
+position = Vector2(1070, 487)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_5j7oa")
+script = ExtResource("3_j3gl2")
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
