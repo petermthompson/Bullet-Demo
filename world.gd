@@ -36,4 +36,7 @@ func get_bullet_velocity(pos_fire: Vector2, vel_fire: Vector2,
 	var c: float = (vel_targ - vel_fire).length_squared() - speed_bullet * speed_bullet
 	vel_fire_to_targ_mag = (-b + sqrt(b * b - 4.0 * a * c)) / (2.0 * a)
 	var vel_bullet: Vector2 = vel_targ + vel_fire_to_targ_mag * vel_fire_to_targ_unit
+	print((vel_bullet - vel_fire).length())
+	print(speed_bullet)
+	print()
 	return vel_bullet
